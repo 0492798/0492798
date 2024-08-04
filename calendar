@@ -1,0 +1,40 @@
+import calendar
+
+def display_month_calendar(year, month):
+    """Displays the calendar for a specific month."""
+    print(calendar.month(year, month))
+
+def display_year_calendar(year):
+    """Displays the calendar for an entire year."""
+    print(calendar.year(year))
+
+def main():
+    print("Welcome to the Python Calendar Program!")
+    print("1. Display a specific month")
+    print("2. Display an entire year")
+
+    choice = input("Enter choice (1/2): ")
+
+    if choice == '1':
+        try:
+            year = int(input("Enter year (e.g., 2024): "))
+            month = int(input("Enter month (1-12): "))
+            if 1 <= month <= 12:
+                display_month_calendar(year, month)
+            else:
+                print("Invalid month. Please enter a number between 1 and 12.")
+        except ValueError:
+            print("Invalid input. Please enter numeric values.")
+
+    elif choice == '2':
+        try:
+            year = int(input("Enter year (e.g., 2024): "))
+            display_year_calendar(year)
+        except ValueError:
+            print("Invalid input. Please enter numeric values.")
+
+    else:
+        print("Invalid choice. Please enter 1 or 2.")
+
+if __name__ == "__main__":
+    main()
